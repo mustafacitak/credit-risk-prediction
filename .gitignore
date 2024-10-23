@@ -4,5 +4,3 @@ data/raw/credit_data.csv
 .dvc/config.local
 .dvc/tmp
 .dvc/cache
-
-
