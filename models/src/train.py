@@ -7,6 +7,9 @@ import os
 import yaml
 import json
 from datetime import datetime
+from utils import plot_feature_importance, plot_confusion_matrix
+
+
 
 
 def load_processed_data():
@@ -63,6 +66,10 @@ def main():
 
     # Modeli ve metrikleri kaydetme
     save_model_and_metrics(model, X_train, y_train)
+
+    # Özellik önemliliği grafiğini oluşturma ve gösterme
+    plot_feature_importance(model, X_train.columns)
+
 
 
 if __name__ == "__main__":

@@ -76,7 +76,12 @@ def plot_feature_importance(model, feature_names, top_n=10):
     # Grafiği kaydet
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     plt.savefig(f'models/feature_importance_{timestamp}.png')
+
+    # Grafiği ekranda göster
+    plt.show()
+
     plt.close()
+
 
 def plot_confusion_matrix(cm, save=True):
     """Karmaşıklık matrisini görselleştirir"""
@@ -89,6 +94,10 @@ def plot_confusion_matrix(cm, save=True):
     if save:
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         plt.savefig(f'models/confusion_matrix_{timestamp}.png')
+
+    # Grafiği ekranda göster
+    plt.show()
+
     plt.close()
 
 def log_training_info(metrics, model_path):

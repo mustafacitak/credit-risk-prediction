@@ -3,6 +3,10 @@ import joblib
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 import json
 import os
+from utils import plot_feature_importance, plot_confusion_matrix
+
+
+
 
 def load_test_data():
     """İşlenmiş test verisini yükler"""
@@ -59,6 +63,10 @@ def main():
 
     # Metrikleri kaydetme
     save_metrics(accuracy, report, cm)
+
+    # Karmaşıklık matrisini görselleştirme ve gösterme
+    plot_confusion_matrix(cm)
+
 
 
 if __name__ == "__main__":
