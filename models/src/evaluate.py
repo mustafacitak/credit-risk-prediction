@@ -7,7 +7,6 @@ from utils import plot_feature_importance, plot_confusion_matrix
 
 
 
-
 def load_test_data():
     """İşlenmiş test verisini yükler"""
     X_test = pd.read_csv('data/processed/X_test.csv')
