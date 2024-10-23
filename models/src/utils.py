@@ -7,6 +7,7 @@ from datetime import datetime
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+
 # Proje yapılandırma sabitleri
 CONFIG = {
     'random_state': 42,
