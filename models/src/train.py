@@ -1,21 +1,23 @@
 import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score
 import joblib
+import os
 import yaml
 import json
 from datetime import datetime
 
 
 def load_processed_data():
-    """Load processed training data"""
+    """ İşlenmiş eğitim verisini yükler """
     X_train = pd.read_csv('data/processed/X_train.csv')
     y_train = pd.read_csv('data/processed/y_train.csv')
     return X_train, y_train.values.ravel()
 
 
 def train_model(X_train, y_train):
-    """Train a Random Forest model"""
+    """ Random Forest modelini eğitir """
     model = RandomForestClassifier(
         n_estimators=100,
         max_depth=10,
@@ -27,14 +29,13 @@ def train_model(X_train, y_train):
 
 
 def save_model_and_metrics(model, X_train, y_train):
-    """Save the trained model and training metrics"""
-    # Save model
+    """ Eğitilen modeli ve eğitim metriklerini kaydeder """
     os.makedirs('models', exist_ok=True)
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     model_path = f'models/model_{timestamp}.joblib'
     joblib.dump(model, model_path)
 
-    # Calculate and save training metrics
+    # Eğitim doğruluğunu hesaplama
     train_score = model.score(X_train, y_train)
     feature_importance = dict(zip(X_train.columns, model.feature_importances_))
 
@@ -50,19 +51,18 @@ def save_model_and_metrics(model, X_train, y_train):
     with open(f'models/metrics_{timestamp}.json', 'w') as f:
         json.dump(metrics, f, indent=4)
 
-    return metrics
+    print(f"Model ve metrikler kaydedildi. Eğitim doğruluğu: {train_score:.2f}")
 
 
 def main():
-    # Load data
+    # İşlenmiş veriyi yükleme
     X_train, y_train = load_processed_data()
 
-    # Train model
+    # Modeli eğitme
     model = train_model(X_train, y_train)
 
-    # Save model and metrics
-    metrics = save_model_and_metrics(model, X_train, y_train)
-    print(f"Training completed. Metrics: {metrics}")
+    # Modeli ve metrikleri kaydetme
+    save_model_and_metrics(model, X_train, y_train)
 
 
 if __name__ == "__main__":

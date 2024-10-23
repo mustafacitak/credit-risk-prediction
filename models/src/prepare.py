@@ -6,6 +6,7 @@ import yaml
 import os
 
 
+
 def load_data(filepath):
     """Load and perform initial cleaning of credit data"""
     df = pd.read_csv(filepath)
