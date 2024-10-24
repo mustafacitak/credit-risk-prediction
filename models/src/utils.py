@@ -81,7 +81,6 @@ def plot_feature_importance(model, feature_names, top_n=10):
 
     # Grafiği ekranda göster
     plt.show()
-
     plt.close()
 
 

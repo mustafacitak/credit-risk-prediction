@@ -10,7 +10,11 @@ from datetime import datetime
 from utils import plot_feature_importance, plot_confusion_matrix
 
 
-
+def setup_visualization_directory():
+    """Görselleştirme için gerekli dizinleri oluşturur"""
+    vis_dir = os.path.join(get_project_root(), 'models')
+    os.makedirs(vis_dir, exist_ok=True)
+    return vis_dir
 
 def load_processed_data():
     """ İşlenmiş eğitim verisini yükler """
