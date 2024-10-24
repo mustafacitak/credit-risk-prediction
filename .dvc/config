@@ -1,5 +1,7 @@
 [core]
     autostage = true
-    remote = myremote
+    remote = origin
 ['remote "myremote"']
     url = s3://my-bucket/path
+['remote "origin"']
+    url = https://github.com/mustafacitak/credit-risk-prediction.git
