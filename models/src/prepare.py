@@ -6,8 +6,6 @@ import yaml
 import os
 from utils import plot_feature_importance, plot_confusion_matrix
 
-import sys
-print(sys.executable)
 
 
 def load_data(filepath):

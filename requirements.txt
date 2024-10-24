@@ -5,3 +5,7 @@ dvc
 PyYAML
 matplotlib
 seaborn
+dvc>=3.0.0
+dvc[s3]  # AWS S3 desteği için
+joblib
+pyyaml

@@ -1,22 +1,23 @@
 stages:
-  train_model:
+  prepare:
+    cmd: python prepare.py
+    deps:
+      - data/raw/credit_data.csv
+    outs:
+      - data/processed/X_train.csv
+      - data/processed/X_test.csv
+      - data/processed/y_train.csv
+      - data/processed/y_test.csv
+
+  train:
     cmd: python train.py
     deps:
-    - data/processed/X_train.csv
-    - data/processed/y_train.csv
+      - data/processed/X_train.csv
+      - data/processed/X_test.csv
+      - data/processed/y_train.csv
+      - data/processed/y_test.csv
     outs:
-    - models/model.joblib
-  evaluate_model:
-    cmd: python evaluate.py
-    deps:
-    - data/processed/X_test.csv
-    - data/processed/y_test.csv
-    - models/model.joblib
-    outs:
-    - models/metrics/test_metrics.json
-  prepare_data:
-    cmd: python models/src/prepare.py
-    deps:
-    - data/raw/credit_data.csv
-    outs:
-    - data/processed
+      - models/model.joblib
+    metrics:
+      - models/metrics/test_metrics.json:
+          cache: false

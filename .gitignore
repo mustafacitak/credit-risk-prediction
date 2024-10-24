@@ -1,7 +1,27 @@
-# created by virtualenv automatically
-.venv/bin
-data/raw/credit_data.csv
-.dvc/config.local
-.dvc/tmp
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+env/
+.env
+.venv
+venv/
+
+# DVC
+/data/raw/*.csv
+/data/processed/*.csv
+/models/*.joblib
 .dvc/cache
-models/src
+.dvc/tmp
+.dvc/config.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db

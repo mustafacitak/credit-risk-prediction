@@ -1,0 +1,15 @@
+schema: '2.0'
+stages:
+  prepare_data:
+    cmd: python models/src/prepare.py
+    deps:
+    - path: data/raw/credit_data.csv
+      hash: md5
+      md5: 940b416bb13a9b24bb5c9e1589284005
+      size: 2862995
+    outs:
+    - path: data/processed
+      hash: md5
+      md5: bee5a2422ab19309ccd424e5027db03f.dir
+      size: 19773727
+      nfiles: 5
