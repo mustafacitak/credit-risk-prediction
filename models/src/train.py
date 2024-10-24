@@ -26,7 +26,7 @@ def load_processed_data():
 def train_model(X_train, y_train):
     """ Random Forest modelini eğitir """
     model = RandomForestClassifier(
-        n_estimators=100,
+        n_estimators=150,  # Değişiklik yapıldı
         max_depth=10,
         random_state=42,
         class_weight='balanced'

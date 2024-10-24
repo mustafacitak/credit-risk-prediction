@@ -1,0 +1,22 @@
+stages:
+  train_model:
+    cmd: python train.py
+    deps:
+    - data/processed/X_train.csv
+    - data/processed/y_train.csv
+    outs:
+    - models/model.joblib
+  evaluate_model:
+    cmd: python evaluate.py
+    deps:
+    - data/processed/X_test.csv
+    - data/processed/y_test.csv
+    - models/model.joblib
+    outs:
+    - models/metrics/test_metrics.json
+  prepare_data:
+    cmd: python models/src/prepare.py
+    deps:
+    - data/raw/credit_data.csv
+    outs:
+    - data/processed

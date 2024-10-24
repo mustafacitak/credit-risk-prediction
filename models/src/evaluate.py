@@ -54,7 +54,7 @@ def main():
     X_test, y_test = load_test_data()
 
     # Eğitilmiş modeli yükleme
-    model_path = 'models/model_20241023_225646.joblib'  # En son kaydettiğiniz modelin yolunu girin
+    model_path = 'models/model_20241024_165933.joblib'  # En son kaydettiğiniz modelin yolunu girin
     model = load_model(model_path)
 
     # Modeli değerlendirme
