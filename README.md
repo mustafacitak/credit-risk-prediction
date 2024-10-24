@@ -8,7 +8,7 @@ This project implements a machine learning model to predict credit risk using hi
 ### Feature Importance
 
 <div align="center">
-  <img src="models/src/models/feature_importance_20241023_233614.png" alt="Feature Importance">
+  <img src="models/src/models/confusion_matrix_20241024_170019.png" alt="Feature Importance">
 </div>
 
 The top features influencing credit risk prediction are:
@@ -19,7 +19,7 @@ The top features influencing credit risk prediction are:
 ### Model Performance
 
 <div align="center">
-  <img src="models/src/models/confusion_matrix_20241023_233704.png" alt="Confusion Matrix">
+  <img src="models/src/models/feature_importance_20241024_165933.png" alt="Confusion Matrix">
 </div>
 
 The confusion matrix shows:
