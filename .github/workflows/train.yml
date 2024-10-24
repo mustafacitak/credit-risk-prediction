@@ -24,13 +24,13 @@ jobs:
       run: dvc pull
     
     - name: Prepare data
-      run: python src/prepare.py
+      run: python models/src/prepare.py
     
     - name: Train model
-      run: python src/train.py
+      run: python models/src/train.py
     
     - name: Upload model artifacts
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3  # Güncelleme yapıldı
       with:
         name: model-files
         path: |
